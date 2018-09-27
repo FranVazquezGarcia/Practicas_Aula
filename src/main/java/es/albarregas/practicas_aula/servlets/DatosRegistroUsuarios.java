@@ -58,7 +58,7 @@ public class DatosRegistroUsuarios extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             //
             out.println(request.getParameter("Preferencia1"));
-            String mostrarError[]={"ERROR: No has introducido el nombre.","ERROR: No has introducido el usuario.","ERROR: No has introducido la contaseña.","\"ERROR: La fecha de nacimiento es incorrecta.\""};
+            String mostrarError[]={"ERROR: No has introducido el nombre.","ERROR: No has introducido el usuario.","ERROR: No has introducido la contaseña.","ERROR: La fecha de nacimiento es incorrecta."};
     
              int numAnio=Integer.parseInt(request.getParameter("Anio"));
              
@@ -93,24 +93,16 @@ public class DatosRegistroUsuarios extends HttpServlet {
              
              out.println("<br></fieldset>");
                 
-             out.print("<form action=\"DatosRegistroUsuarios\" method=\"POST\" name=\"form\">\n" +
-"            <h1>Registro de usuarios</h1>\n" +
-"		<fieldset>\n" +
-"                    <legend style=\"\">Informacion Personal</legend>\n" +
-"                    <label for='nombre' >*Nombre: </label>\n" +
-"                    <input type=\"text\" id=\"nombre\" name=\"Nombre\" value="+request.getParameter("Nombre")+">");
+             out.print("<form action=\"DatosRegistroUsuarios\" method=\"POST\" name=\"form\">\n<h1>Registro de usuarios</h1>\n<fieldset>\n<legend style=\"\">Informacion Personal</legend>\n");
+             out.print("<label for='nombre' >*Nombre: </label>\n<input type=\"text\" id=\"nombre\" name=\"Nombre\" value="+request.getParameter("Nombre")+">");
                     if(error[0]==-1){
                         out.println("<i class=\"material-icons\" id=\"iconCorrect\">check</i>");
                     }else{
                         out.println("<i class=\"material-icons\"  id=\"iconError\">clear</i>");
                     }
-                    out.println("<br><br>\n" +
-"                                <label for='apellidos' >Apellidos: </label>\n" +
-"                                <input type=\"text\" id=\"apellidos\" name=\"Apellidos\" value="+request.getParameter("Apellidos")+"><br>\n" +
-"                                <br>\n" +
-"                              \n" +
-"                                \n" +
-"                                <div>Sexo:<br>\n" +
+                    out.println("<br><br>\n<label for='apellidos' >Apellidos: </label>\n");
+                                out.println("<input type=\"text\" id=\"apellidos\" name=\"Apellidos\" value="+request.getParameter("Apellidos")+"><br>\n");
+                               out.print("<br>\n\n\n<div>Sexo:<br>\n" +
 "                                    <div id=\"radio\">\n" +
 "                                    \n" +
 "                                <label for='sexo' >Hombre</label>\n");
@@ -126,11 +118,7 @@ public class DatosRegistroUsuarios extends HttpServlet {
                                 }else{
                                     out.print("<input type=\"radio\"  name=\"sexo\" value=\"Mujer\" ><br><br>\n \n");
                                 }
-                                out.print("</div>\n" +
-"                                <br><br><br><br>\n" +
-"                                <div>Fecha de nacimiento:\n" +
-"                                    <div id=\"derecha\">\n" +
-"                                <select name=\"Dia\">\n");                                    
+                                out.print("</div>\n<br><br><br><br>\n<div>Fecha de nacimiento:\n<div id=\"derecha\">\n<select name=\"Dia\">\n");                                    
                                         for(int i=1;i<32;i++){
                                             out.println("<option value="+i+" ");
                                             if (i==Integer.parseInt(request.getParameter("Dia"))){
@@ -179,9 +167,7 @@ public class DatosRegistroUsuarios extends HttpServlet {
                         out.println("<i class=\"material-icons\"  id=\"iconError\">clear</i>");
                     }
         
-        out.println("<br><br>\n" +
-"                    <label for='contrasenia' >*Contraseña: </label>\n" +
-"                                <input type=\"password\" id=\"contrasenia\" name=\"Contrasena\" value="+request.getParameter("Contrasena")+">");
+        out.println("<br><br>\n<label for='contrasenia' >*Contraseña: </label>\n<input type=\"password\" id=\"contrasenia\" name=\"Contrasena\" value="+request.getParameter("Contrasena")+">");
         if(error[2]==-1){
                         out.println("<i class=\"material-icons\" id=\"iconCorrect\">check</i>");
                     }else{

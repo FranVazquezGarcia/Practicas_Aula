@@ -15,7 +15,7 @@ fieldset input, #derecha{float: right; margin-right: 400px}
 #radio label{float: left}
 #radio input{float:right}
 label,div {font-size: 20px}
-body {background-color: lavender;}
+body {background-color: lavender; }
 #centrar{text-align: center}
 fieldset#campoerror{background-color: #F38E8E; border-style: solid; border-color: black}
 #campoerror legend,.error{color: darkred}
