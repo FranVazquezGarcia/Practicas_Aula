@@ -1,0 +1,27 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19-sep-2018, 17:47:28
+    Author     : fjvaz
+*/
+
+h1{font-size: 3em; text-align: center}
+div{font-size: 40px}
+
+#contenedor{
+    width: 100%;
+}
+#left, #right{float: left; width:40%; margin-left: 10% }
+
+#right2{
+    float: right;
+    width:40%;
+    margin-top: 10%;
+    }
+
+#listaizq, #listader{ font-size: 20px; float: left;  width:40%; margin-left: 10% }
+
+#listader2{ font-size: 20px;}

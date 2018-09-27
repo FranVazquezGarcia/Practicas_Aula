@@ -1,0 +1,21 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21-sep-2018, 12:03:30
+    Author     : fjvaz
+*/
+fieldset{background-color: #ccffcc; border-style: inset; border-color: green;  border-width: 5px; margin-right: 25%; margin-left: 10%}
+legend {font-size: 3em; }
+label{font-size: 2em}
+input {font-size: 1em}
+#enlace{float:right; background-color: white; font-family: fantasy;}
+a{color: black}
+#datos {margin-left: 30px; font-size: 30px}
+#preguntas{font-size: 30px}
+select {width: 7em; font-size: 20px}
+h1 {font-size: 4em; text-align: center; text-decoration: underline green}
+#centrar{text-align: center}
+.completo{background-color: lavender; }

@@ -1,0 +1,23 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24-sep-2018, 23:31:04
+    Author     : fjvaz
+*/
+h1 {font-size: 4em; text-align: center; text-decoration: underline green}
+fieldset{background-color: #ccffcc; border-style: inset; border-color: green;  border-width: 5px; margin-right: 25%; margin-left: 10%}
+legend {font-size: 3em; }
+fieldset input, #derecha{float: right; margin-right: 400px}
+#radio{float:right; }
+#radio label{float: left}
+#radio input{float:right}
+label,div {font-size: 20px}
+body {background-color: lavender;}
+#centrar{text-align: center}
+fieldset#campoerror{background-color: #F38E8E; border-style: solid; border-color: black}
+#campoerror legend,.error{color: darkred}
+#iconError{color: red;  float:right; background-color: #F38E8E}
+#iconCorrect{color: blue;  float:right; }

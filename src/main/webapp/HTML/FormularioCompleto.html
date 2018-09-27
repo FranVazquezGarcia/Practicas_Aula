@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Formulario Completo</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" media="screen" href="../CSS/formulario.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body class="completo">
+        <form action="../EnviarDatosFormulario" method="post" name="form">
+            <h1>Formulario Completo</h1>
+		<fieldset>
+                    <legend style="">Datos personales</legend>
+				<label for='nombre' >Introduce tu nombre: </label>
+                                <input type="text" id="nombre" name="Nombre">
+                                <br><br>
+                                <label for='Contrasena' >Introduce una contraseña: </label>
+                                <input type="password" id="Contrasena" name="Contrasena">
+                                <br><br>
+                                <label for='edad' >Edad: </label>
+                                <input type="number" id="edad" name="Edad" min="18" max="80">
+                                <br>
+                </fieldset>
+                <fieldset>
+                    <legend style="">Otros datos</legend>
+                         <div id="preguntas">Estado civil: </div>
+                                <label for='estadocivil' >Soltero/a </label>
+                                <input type="radio"  name="Estado Civil" value="Soltero/a" checked="">
+                                <label for='estadocivil' >Casado/a </label>
+                                <input type="radio"  name="Estado Civil" value="Casado/a">
+                                <label for='estadocivil' >Viudo/a </label>
+                                <input type="radio"  name="Estado Civil" value="Viudo/a">
+                                <label for='estadocivil' >Divorciado/a </label>
+                                <input type="radio"  name="Estado Civil" value="Divorciado/a">
+                                <br><br>
+                                <label for='aficiones' >Aficiones(uno o varios, CTRL): </label><br>
+                                <select multiple size="6" name="Aficiones">
+                                    <option value="Deporte">Deporte</option>
+                                    <option value="M&uacute;sica">Música</option>
+                                    <option value="Inform&aacute;tica">Informática</option>
+                                    <option value="Viajes">Viajes</option>
+                                    <option value="Tiendas">Tiendas</option>
+                                    <option value="Juegos">Juegos</option>
+                                </select>
+                                <br><br>
+                                <label for='comentarios' >Comentarios: </label><br>
+                                <textarea rows="6" cols="80" placeholder="Pon tu comentario..." name="Comentario" id="Comentario"></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>Medios Tecnológicos</legend>
+                                <div id="preguntas">¿Dispones de internet?: </div>
+                                <label for='internet' >Si</label>
+                                <input type="radio"  name="Internet" value="Si" checked="">
+                                <label for='internet' >No</label>
+                                <input type="radio"  name="Internet" value="No">
+                                <br><br>
+                                <label for='sistemaoperativo' >Sistema Operativo (Elige uno): </label><br>
+                                    <select size="4" name="Sistema Operativo">
+                                        <option value="Linux">Linux</option>
+                                        <option value="Windows">Windows</option>
+                                        <option value="Macintosh">Macintosh</option>
+                                        <option value="Solaris">Solaris</option>
+                                    </select>
+                </fieldset><br>
+                <div id="centrar">
+                <input type="submit" name="Submit" id="boton" value="Enviar datos">
+                                
+                <input type="reset" id="boton" value="Limpiar formulario">
+                <br><br>´
+                </div>
+        </form>           
+    </body>
+</html>
