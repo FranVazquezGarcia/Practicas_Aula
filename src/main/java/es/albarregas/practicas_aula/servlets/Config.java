@@ -7,12 +7,14 @@ package es.albarregas.practicas_aula.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,8 +23,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author fjvaz
  */
-@WebServlet(name = "EnviarDatosFormulario", urlPatterns = {"/EnviarDatosFormulario"})
-public class EnviarDatosFormulario extends HttpServlet {
+@WebServlet(name = "Config", urlPatterns = {"/Config"}, initParams = {
+    @WebInitParam(name = "parametro1", value = "Este es el parametro número 1")
+    , @WebInitParam(name = "parametro2", value = "Este es el parámetro número 2")})
+public class Config extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,48 +34,35 @@ public class EnviarDatosFormulario extends HttpServlet {
      *
      * @param request servlet request
      * @param response servlet response
-     * @param continuar
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response, boolean continuar)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+          
             /* TODO output your page here. You may use following sample code. */
-             request.setCharacterEncoding("UTF-8");
-            
-            out.println("<!DOCTYPE html>");
             out.println("<!DOCTYPE html>");
             out.println("<html>");
-                 
-                 
-                    out.println("<html><head> <meta charset=\"UTF-8\"><link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"CSS/formulario.css\" /></head><body><fieldset><legend style=\"\">Datos enviados</legend>");
-                     out.println("<div id='datos'>");
-                
-                    
-                      Map<String, String[]> coleccion =request.getParameterMap();
-                        for (Map.Entry<String, String[]> entrada : coleccion.entrySet()){
-                            String[] valores = entrada.getValue();
-                        if (!entrada.getKey().startsWith("Sub")){
-                            if(valores.length==1){
-                            out.println("<div id='datos'><strong>"+entrada.getKey()+ "</strong>: "+valores[0]+"</div>");
-                            }else{
-                                out.println("<div id='datos'><strong>"+entrada.getKey()+"</strong>: ");
-                                for(String valor : valores){
-                                     out.print(valor+" | ");
-                                }
-                                out.println("</div>");
-                            }
-                        }
-                           
-                        }
-                        
-        out.println("</div>");
-        out.println("<br><div id='enlace'><<a href='"+request.getContextPath()+"'>Volver a la página inicial</a></div>"); 
-        out.println("</body></html>");
+            out.println("<head>");
+            out.println("<title>Servlet Config</title>");
+            out.println("<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"CSS/Sencillo.css\" />\n");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Parametros iniciales</h1>");
+            out.println("<fieldset>");
+            
+            out.println("</fieldset>");
+            out.println("<br><div id='enlace'><a href='"+request.getContextPath()+"'>Volver al menú</a></div>"); 
+            out.println("</body>");
+            out.println("</html>");
         }
     }
+            
+        
+    
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -81,11 +72,38 @@ public class EnviarDatosFormulario extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-   
+    public Config(){
+        super();
+       
+    }
+    
+    
+    @Override
+    public void init(ServletConfig config){
+        Enumeration<String> parametrosIniciales=config.getInitParameterNames();
+         while(parametrosIniciales.hasMoreElements()){
+         String nombre=parametrosIniciales.nextElement();
+         String valor=config.getInitParameter(nombre);
+         System.out.println(nombre+" :"+valor);
+        }
+         
+    }
+    
+    @Override
+    public void destroy(){
+        
+    }
+    
+    @Override
+    public void service( ServletRequest request, ServletResponse response){
+        
+    }
+    
+    
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       //processRequest(request, response);
-       
+        processRequest(request, response);
     }
 
     /**
@@ -93,18 +111,13 @@ public class EnviarDatosFormulario extends HttpServlet {
      *
      * @param request servlet request
      * @param response servlet response
-     * @param continuar
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-  
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            boolean correcto=true;
-            processRequest(request, response, correcto);
-        
-      
-        
+        processRequest(request, response);
     }
 
     /**
@@ -116,5 +129,7 @@ public class EnviarDatosFormulario extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    
 
 }

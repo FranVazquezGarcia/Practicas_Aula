@@ -8,9 +8,6 @@ package es.albarregas.practicas_aula.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author fjvaz
  */
-@WebServlet(name = "EnviarDatosFormulario", urlPatterns = {"/EnviarDatosFormulario"})
-public class EnviarDatosFormulario extends HttpServlet {
+@WebServlet(name = "Cabeceras", urlPatterns = {"/Cabeceras"})
+public class Cabeceras extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,48 +27,41 @@ public class EnviarDatosFormulario extends HttpServlet {
      *
      * @param request servlet request
      * @param response servlet response
-     * @param continuar
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response, boolean continuar)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-             request.setCharacterEncoding("UTF-8");
-            
-            out.println("<!DOCTYPE html>");
             out.println("<!DOCTYPE html>");
             out.println("<html>");
-                 
-                 
-                    out.println("<html><head> <meta charset=\"UTF-8\"><link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"CSS/formulario.css\" /></head><body><fieldset><legend style=\"\">Datos enviados</legend>");
-                     out.println("<div id='datos'>");
+            out.println("<head>");
+            out.println("<title>Servlet PruebaHeader</title>");
+            out.println("<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"CSS/Sencillo.css\" />\n");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Headers</h1>");
+            out.println("<fieldset>");
+            
+            Enumeration<String> parametros=request.getHeaderNames();
+            while(parametros.hasMoreElements()){
+                String nombre=parametros.nextElement();
                 
-                    
-                      Map<String, String[]> coleccion =request.getParameterMap();
-                        for (Map.Entry<String, String[]> entrada : coleccion.entrySet()){
-                            String[] valores = entrada.getValue();
-                        if (!entrada.getKey().startsWith("Sub")){
-                            if(valores.length==1){
-                            out.println("<div id='datos'><strong>"+entrada.getKey()+ "</strong>: "+valores[0]+"</div>");
-                            }else{
-                                out.println("<div id='datos'><strong>"+entrada.getKey()+"</strong>: ");
-                                for(String valor : valores){
-                                     out.print(valor+" | ");
-                                }
-                                out.println("</div>");
-                            }
-                        }
-                           
-                        }
-                        
-        out.println("</div>");
-        out.println("<br><div id='enlace'><<a href='"+request.getContextPath()+"'>Volver a la página inicial</a></div>"); 
-        out.println("</body></html>");
+                String valor=request.getHeader(nombre);
+                out.println("<div><strong>"+nombre+":</strong> "+valor+"</div><hr>");
+            
+                
+            }
+            out.println("</fieldset>");
+            out.println("<br><div id='enlace'><a href='"+request.getContextPath()+"'>Volver al menú</a></div>"); 
+
+            out.println("</body>");
+            out.println("</html>");
         }
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -81,11 +71,10 @@ public class EnviarDatosFormulario extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-   
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       //processRequest(request, response);
-       
+        processRequest(request, response);
     }
 
     /**
@@ -93,18 +82,13 @@ public class EnviarDatosFormulario extends HttpServlet {
      *
      * @param request servlet request
      * @param response servlet response
-     * @param continuar
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-  
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            boolean correcto=true;
-            processRequest(request, response, correcto);
-        
-      
-        
+        processRequest(request, response);
     }
 
     /**

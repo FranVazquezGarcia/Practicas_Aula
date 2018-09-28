@@ -7,17 +7,20 @@ and open the template in the editor.
     Created on : 24-sep-2018, 23:31:04
     Author     : fjvaz
 */
-h1 {font-size: 4em; text-align: center; text-decoration: underline green}
-fieldset{background-color: #ccffcc; border-style: inset; border-color: green;  border-width: 5px; margin-right: 25%; margin-left: 10%}
+h1 {font-size: 4em; text-align: center; text-decoration: underline forestgreen }
+fieldset{background-color: lightskyblue; border-style: inset; border-color: green;  border-width: 5px; margin-right: 15%; margin-left: 15%; }
+#campoResultado{margin-right: 25%; margin-left: 25%; }
 legend {font-size: 3em; }
 fieldset input, #derecha{float: right; margin-right: 400px}
 #radio{float:right; }
 #radio label{float: left}
 #radio input{float:right}
-label,div {font-size: 20px}
+label,div {font-size: 25px}
 body {background-color: lavender; }
 #centrar{text-align: center}
 fieldset#campoerror{background-color: #F38E8E; border-style: solid; border-color: black}
 #campoerror legend,.error{color: darkred}
 #iconError{color: red;  float:right; background-color: #F38E8E}
 #iconCorrect{color: blue;  float:right; }
+#enlace{text-align: center; font-family: fantasy; font-size: 25px}
+hr{border-color: black; background-color: black}

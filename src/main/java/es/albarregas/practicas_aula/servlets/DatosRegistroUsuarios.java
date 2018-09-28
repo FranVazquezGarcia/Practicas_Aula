@@ -6,17 +6,12 @@
 
 
 
-/*
-Meses en numeros en el html. los nombres en un array.
-array entero tablaerror con 4 espacios inicializado a -1,-1,-1,-1, con errores nombre, fecha, usuario, y contraseña.
-Si el nombre esta vacio en la posicion delarray del nombre coloco un 0 sustituyendo el -1.
-StringBuilder para la fecha y asi añadirle dia,mes y año.metodo ape
-jesusAlbarregas github
-*/
+
 
 package es.albarregas.practicas_aula.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -53,11 +48,11 @@ public class DatosRegistroUsuarios extends HttpServlet {
             out.println("<html>");
                  
                  
-            out.println("<head> <meta charset=\"UTF-8\"><link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"CSS/RegistroUsuarios.css\" /><link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">");
+            out.println("<head> <meta charset=\"UTF-8\"><link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"CSS/RegistroUsuarios.css\" /><link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\"></head><body>");
 
             /* TODO output your page here. You may use following sample code. */
             //
-            out.println(request.getParameter("Preferencia1"));
+            
             String mostrarError[]={"ERROR: No has introducido el nombre.","ERROR: No has introducido el usuario.","ERROR: No has introducido la contaseña.","ERROR: La fecha de nacimiento es incorrecta."};
     
              int numAnio=Integer.parseInt(request.getParameter("Anio"));
@@ -102,21 +97,18 @@ public class DatosRegistroUsuarios extends HttpServlet {
                     }
                     out.println("<br><br>\n<label for='apellidos' >Apellidos: </label>\n");
                                 out.println("<input type=\"text\" id=\"apellidos\" name=\"Apellidos\" value="+request.getParameter("Apellidos")+"><br>\n");
-                               out.print("<br>\n\n\n<div>Sexo:<br>\n" +
-"                                    <div id=\"radio\">\n" +
-"                                    \n" +
-"                                <label for='sexo' >Hombre</label>\n");
-                                if(request.getParameter("sexo").equals("Hombre")){
-                                    out.print("<input type=\"radio\"  name=\"sexo\" value=\"Hombre\" checked=\"\"><br><br>\n \n");
+                                out.print("<br>\n\n\n<div>Sexo:<br>\n<div id=\"radio\">\n\n");
+                                out.println("<label for='Sexo' >Hombre</label>\n");
+                                if(request.getParameter("Sexo").equals("Hombre")){
+                                    out.print("<input type=\"radio\"  name=\"Sexo\" value=\"Hombre\" checked=\"\"><br><br>\n \n");
                                 }else{
-                                    out.print("<input type=\"radio\"  name=\"sexo\" value=\"Hombre\" ><br><br>\n \n");
+                                    out.print("<input type=\"radio\"  name=\"Sexo\" value=\"Hombre\" ><br><br>\n \n");
                                 }
-                                out.print("<label for='sexo'  >Mujer</label>");
-                                  if(request.getParameter("sexo").equals("Mujer")){
-                                    out.print("<input type=\"radio\"  name=\"sexo\" value=\"Mujer\" checked=\"\"><br><br>\n \n");
-                                    
+                                out.print("<label for='Sexo'  >Mujer</label>");
+                                  if(request.getParameter("Sexo").equals("Mujer")){
+                                    out.print("<input type=\"radio\"  name=\"Sexo\" value=\"Mujer\" checked=\"\"><br><br>\n \n");
                                 }else{
-                                    out.print("<input type=\"radio\"  name=\"sexo\" value=\"Mujer\" ><br><br>\n \n");
+                                    out.print("<input type=\"radio\"  name=\"Sexo\" value=\"Mujer\" ><br><br>\n \n");
                                 }
                                 out.print("</div>\n<br><br><br><br>\n<div>Fecha de nacimiento:\n<div id=\"derecha\">\n<select name=\"Dia\">\n");                                    
                                         for(int i=1;i<32;i++){
@@ -127,8 +119,7 @@ public class DatosRegistroUsuarios extends HttpServlet {
                                                 out.print(">"+i+"</option>\n");
                                             }
                                         }
-                                 out.println("</select> /\n" +
-"                                <select name=\"Mes\" >\n");
+                                 out.println("</select> /\n<select name=\"Mes\" >\n");
                                          for(int i=1;i<13;i++){
                                        out.println("<option value="+i+" ");
                                             if (i==Integer.parseInt(request.getParameter("Mes"))){
@@ -137,8 +128,7 @@ public class DatosRegistroUsuarios extends HttpServlet {
                                                 out.print(">"+i+"</option>\n");
                                             }
                                     }
-                                out.println("</select> /\n" +
-"                                <select name=\"Anio\" >\n");
+                                out.println("</select> /\n <select name=\"Anio\" >\n");
                                 for(int i=1980;i<2019;i++){
                                        out.println("<option value="+i+" ");
                                             if (i==Integer.parseInt(request.getParameter("Anio"))){
@@ -148,69 +138,126 @@ public class DatosRegistroUsuarios extends HttpServlet {
                                             }
                                     }
                                    out.println("</select>");
-                                         if(error[3]==-1){
-                        out.println("<i class=\"material-icons\" id=\"iconCorrect\">check</i>");
-                    }else{
-                        out.println("<i class=\"material-icons\"  id=\"iconError\">clear</i>");
-                    }
-                                        out.println("\n" +
-"                                 </div>\n" +
-"                                </div>\n" +
-"                </fieldset>\n" +
-"                <fieldset>\n" +
-"                    <legend style=\"\">Datos de acceso</legend>\n" +
-"                    <label for='usuario' >*Usuario: </label>\n" +
-"                    <input type=\"text\" id=\"usuario\" name=\"Usuario\" value="+request.getParameter("Usuario")+">");
-                                if(error[1]==-1){
-                        out.println("<i class=\"material-icons\" id=\"iconCorrect\">check</i>");
-                    }else{
-                        out.println("<i class=\"material-icons\"  id=\"iconError\">clear</i>");
-                    }
+                                        if(error[3]==-1){
+                                            out.println("<i class=\"material-icons\" id=\"iconCorrect\">check</i>");
+                                        }else{
+                                            out.println("<i class=\"material-icons\"  id=\"iconError\">clear</i>");
+                                    }
+                                        out.println("\n</div>\n</div>\n</fieldset>\n");
+                                        out.println("<fieldset>\n<legend style=\"\">Datos de acceso</legend>\n");
+                                        out.println("<label for='usuario' >*Usuario: </label>\n");
+                                        out.println("<input type=\"text\" id=\"usuario\" name=\"Usuario\" value="+request.getParameter("Usuario")+">");
+                                        if(error[1]==-1){
+                                            out.println("<i class=\"material-icons\" id=\"iconCorrect\">check</i>");
+                                        }else{
+                                            out.println("<i class=\"material-icons\"  id=\"iconError\">clear</i>");
+                                        }
         
-        out.println("<br><br>\n<label for='contrasenia' >*Contraseña: </label>\n<input type=\"password\" id=\"contrasenia\" name=\"Contrasena\" value="+request.getParameter("Contrasena")+">");
-        if(error[2]==-1){
-                        out.println("<i class=\"material-icons\" id=\"iconCorrect\">check</i>");
-                    }else{
-                        out.println("<i class=\"material-icons\"  id=\"iconError\">clear</i>");
-                    }
+                                        out.println("<br><br>\n<label for='contrasenia' >*Contraseña: </label>\n<input type=\"password\" id=\"contrasenia\" name=\"Contrasena\" value="+request.getParameter("Contrasena")+">");
+                                        if(error[2]==-1){
+                                            out.println("<i class=\"material-icons\" id=\"iconCorrect\">check</i>");
+                                        }else{
+                                            out.println("<i class=\"material-icons\"  id=\"iconError\">clear</i>");
+                                        }
                 
-                out.println("</fieldset>\n" +
-"                  <fieldset>\n" +
-"                    <legend>Informacion General</legend>\n" +
-"                    <div id=\"preferencias\">Preferencias:<br>\n" +
-"                        <div id=\"radio\">\n" +
-"                                <label for='preferencias' >Deporte</label>\n" +
-"                                <input type=\"checkbox\"  name=\"Preferencias1\" value=\"Deporte\" checked=\"\"><br>\n" +
+                   out.println("</fieldset>\n");
+                   out.println("<fieldset>\n<legend>Informacion General</legend>\n<div id=\"preferencias\">Preferencias:<br><div id=\"radio\">\n");
+                               String preferencias[]=request.getParameterValues("Preferencias");
+                               boolean deporte=false,lectura=false,cine=false,viajes=false;
+                                for(int i=0;i<preferencias.length;i++){
+                                    if(preferencias[i].equals("Deporte")){
+                                      deporte=true;
+                                    }
+                                    if(preferencias[i].equals("Lectura")){
+                                      lectura=true;
+                                    }
+                                    if(preferencias[i].equals("Cine")){
+                                      cine=true;
+                                    }
+                                    if(preferencias[i].equals("Viajes")){
+                                      viajes=true;
+                                    }
+                                }
                                 
-"                                <label for='preferencias' >Lectura</label>\n" +
-"                                <input type=\"checkbox\"  name=\"Preferencias2\" value=\"Lectura\"><br>\n" +
-"                                <label for='preferencias' >Cine</label>\n" +
-"                                <input type=\"checkbox\"  name=\"Preferencias3\" value=\"Cine\"><br>\n" +
-"                                <label for='preferencias' >Viajes</label>\n" +
-"                                <input type=\"checkbox\"  name=\"Preferencias4\" value=\"Viajes\"><br>\n" +
-"                                <br><br>\n" +
-"                                </div>\n" +
-"                </fieldset><br>"+
-"                <div id=\"centrar\">\n" +
-"                <input type=\"submit\" name=\"Submit\" id=\"boton\" value=\"Enviar datos\">\n" +
-"                                \n" +
-"                <input type=\"reset\" id=\"boton\" value=\"Limpiar formulario\">\n" +
-"                <br><br>´\n" +
-"                </div>\n" +
-"        </form> ");
-            
+                                if(deporte){
+                                out.println("<input type=\"checkbox\"  name=\"Preferencias\" value=\"Deporte\" checked=\"\">Deporte<br>\n");
+                                }else{
+                                    out.println("<input type=\"checkbox\"  name=\"Preferencias\" value=\"Deporte\">Deporte<br>\n");
+                                }
+                                if(lectura){
+                                    out.println("<input type=\"checkbox\"  name=\"Preferencias\" value=\"Lectura\" checked=\"\">Lectura<br>\n");
+                                }else{
+                                     out.println("<input type=\"checkbox\"  name=\"Preferencias\" value=\"Lectura\">Lectura<br>\n");
+                                }
+                                if(cine){
+                                    out.println("<input type=\"checkbox\"  name=\"Preferencias\" value=\"Cine\" checked=\"\">Cine<br>\n");
+                                }else{
+                                     out.println("<input type=\"checkbox\"  name=\"Preferencias\" value=\"Cine\">Cine<br>\n");
+                                }
+                                if(viajes){
+                                    out.println("<input type=\"checkbox\"  name=\"Preferencias\" value=\"Viajes\" checked=\"\">Viajes<br>\n");
+                                }else{
+                                     out.println("<input type=\"checkbox\"  name=\"Preferencias\" value=\"Viajes\">Viajes<br>\n");
+                                }
+                           
+                                out.println("<br><br>\n</div>\n</fieldset><br><div id=\"centrar\">\n");
+                                out.println("<input type=\"submit\" name=\"Submit\" id=\"boton\" value=\"Enviar datos\">\n\n");
+                                out.println("<input type=\"reset\" id=\"boton\" value=\"Limpiar formulario\">\n<br><br>´\n</div>\n");
+                                out.println("</form>");
+                                out.println("</body>");
+                                out.println("</html>");
             }else{
-       
-                
-                
-                          
-               
-        
-        
-            out.println("</body>");
-            out.println("</html>");
-        }
-        
+                                out.println("<h1>Datos del Usuario</h1>");
+                                out.println("<fieldset id=\"campoResultado\">");
+                                Map<String, String[]> coleccion =request.getParameterMap();
+                                int Dia=0;
+                                int Mes=0;
+                                int Anio=0;
+                                boolean mostrarFecha=true;
+                                String[] meses={"Enero", "Febrero" ,"Marzo","Abril","Mayo","Junio","Julio","Agosto", "Septiembre","Octubre","Noviembre","Dicimbre"};
+                                for (Map.Entry<String, String[]> entrada : coleccion.entrySet()){
+                                    String[] valores = entrada.getValue();
+                                    if (!entrada.getKey().startsWith("Sub")){ 
+                                        if(valores.length==1){
+                                            if (entrada.getKey().startsWith("Dia")){
+                                                Dia=Integer.parseInt(valores[0]);
+                                            }
+                                            else if (entrada.getKey().startsWith("Mes")){
+                                                Mes=Integer.parseInt(valores[0])-1;
+                                            }
+                                            else if (entrada.getKey().startsWith("Anio")){
+                                                Anio=Integer.parseInt(valores[0]);
+                                            }else{
+                                                out.println("<div id='datos'><strong>"+entrada.getKey()+ "</strong>: "+valores[0]+"</div><hr>");
+                                            }
+                                        }else if(valores.length>1){
+                                            
+                                            out.println("<div id='datos'><strong>"+entrada.getKey()+": </strong>");
+                                             String cadenaValores="";
+                                            for(int i=0;i<valores.length;i++){
+                                                
+                                                cadenaValores+=valores[i]+", ";
+
+                                            }
+                                            cadenaValores = cadenaValores.substring(0, cadenaValores.length()-2); 
+                                            
+                                            out.println(cadenaValores+"</div><hr>");
+                                            
+                                        }
+                                    }
+                                    
+                                 if (Dia!=0 && Mes>=0 && Anio!=0 && mostrarFecha){
+                                        out.println("<div id='datos'><strong>Fecha de nacimiento</strong>: "+Dia+" de "+meses[Mes]+" del "+Anio+"</div><hr>");
+                                        mostrarFecha=false;
+                                }
+                               
+                                }
+                                
+                                out.println("</fieldset>");
+                                out.println("<br><div id='enlace'><a href='"+request.getContextPath()+"'>Volver al menú</a></div>"); 
+                                out.println("</body>");
+                                out.println("</html>");
+             }
         }
     }
     
@@ -259,6 +306,7 @@ public class DatosRegistroUsuarios extends HttpServlet {
         boolean errorFecha=false;
           
         switch(numMes){
+            
             case 4:case 6:case 9:case 11:
                 if(numDia>30){
                     errorFecha=true;
@@ -268,7 +316,7 @@ public class DatosRegistroUsuarios extends HttpServlet {
                 if((numAnio%100==0 && numAnio%400==0) || (numAnio%100 != 0 && numAnio% 4 == 0)){
                     if(numDia>29){
                         errorFecha=true;
-                    }
+                    }   
                 }else{
                     if(numDia>28){
                           

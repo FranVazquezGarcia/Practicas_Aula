@@ -1,0 +1,15 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27-sep-2018, 23:48:22
+    Author     : fjvaz
+*/
+
+h1{text-align: center; font-size: 70px; text-decoration: underline blue}
+fieldset div{ font-size: 30px;}
+fieldset{margin-left: 10%; margin-right: 10%; border-color: blue}
+#enlace{text-align: center; font-family: fantasy; font-size: 25px}
+    
