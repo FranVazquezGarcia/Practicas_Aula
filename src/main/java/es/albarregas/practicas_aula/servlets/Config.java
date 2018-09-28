@@ -52,7 +52,12 @@ public class Config extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Parametros iniciales</h1>");
             out.println("<fieldset>");
-            
+//            Enumeration<String> parametrosIniciales=request.getParameterNames();
+//            while(parametrosIniciales.hasMoreElements()){
+//            String nombre=parametrosIniciales.nextElement();
+//            String valor=request.getParameter(nombre);
+//            out.println(nombre+" :"+valor);
+//        }
             out.println("</fieldset>");
             out.println("<br><div id='enlace'><a href='"+request.getContextPath()+"'>Volver al menú</a></div>"); 
             out.println("</body>");
@@ -80,6 +85,7 @@ public class Config extends HttpServlet {
     
     @Override
     public void init(ServletConfig config){
+      
         Enumeration<String> parametrosIniciales=config.getInitParameterNames();
          while(parametrosIniciales.hasMoreElements()){
          String nombre=parametrosIniciales.nextElement();

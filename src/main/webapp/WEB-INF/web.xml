@@ -13,8 +13,8 @@
         </init-param>
     </servlet>
     <error-page>
-        <error-code>404</error-code>
-        <location>/Error404.html</location>
+	<error-code>404</error-code>
+	<location>/HTML/Error404.html</location>
     </error-page>
     <servlet-mapping>
         <servlet-name>InfoDeCliente</servlet-name>

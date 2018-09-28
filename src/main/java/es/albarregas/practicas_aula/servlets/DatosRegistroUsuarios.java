@@ -39,7 +39,36 @@ public class DatosRegistroUsuarios extends HttpServlet {
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+       
+    }
+    
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific errorFecha occurs
+     * @throws IOException if an I/O errorFecha occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific errorFecha occurs
+     * @throws IOException if an I/O errorFecha occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+             response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             request.setCharacterEncoding("UTF-8");
             
@@ -247,7 +276,7 @@ public class DatosRegistroUsuarios extends HttpServlet {
                                     }
                                     
                                  if (Dia!=0 && Mes>=0 && Anio!=0 && mostrarFecha){
-                                        out.println("<div id='datos'><strong>Fecha de nacimiento</strong>: "+Dia+" de "+meses[Mes]+" del "+Anio+"</div><hr>");
+                                        out.println("<div id='datos'><strong>Fecha de nacimiento</strong>: "+Dia+" de "+meses[Mes]+" de "+Anio+"</div><hr>");
                                         mostrarFecha=false;
                                 }
                                
@@ -259,35 +288,6 @@ public class DatosRegistroUsuarios extends HttpServlet {
                                 out.println("</html>");
              }
         }
-    }
-    
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific errorFecha occurs
-     * @throws IOException if an I/O errorFecha occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific errorFecha occurs
-     * @throws IOException if an I/O errorFecha occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-            
         processRequest(request, response);
     }
 
