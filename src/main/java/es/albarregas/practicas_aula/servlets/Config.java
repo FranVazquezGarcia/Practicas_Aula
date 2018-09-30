@@ -23,9 +23,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author fjvaz
  */
+
+//Parámetros definidos automaticamente por Netbeans
 @WebServlet(name = "Config", urlPatterns = {"/Config"}, initParams = {
-    @WebInitParam(name = "parametro1", value = "Este es el parametro número 1")
-    , @WebInitParam(name = "parametro2", value = "Este es el parámetro número 2")})
+    @WebInitParam(name = "Parametro1", value = "Este es el parametro número 1")
+    , @WebInitParam(name = "Parametro2", value = "Este es el parámetro número 2")})
 public class Config extends HttpServlet {
 
     /**
@@ -52,12 +54,18 @@ public class Config extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Parametros iniciales</h1>");
             out.println("<fieldset>");
-//            Enumeration<String> parametrosIniciales=request.getParameterNames();
-//            while(parametrosIniciales.hasMoreElements()){
-//            String nombre=parametrosIniciales.nextElement();
-//            String valor=request.getParameter(nombre);
-//            out.println(nombre+" :"+valor);
-//        }
+            
+            //Obtenemos los parametros iniciales y los muestro:
+            Enumeration<String> parametrosIniciales=getInitParameterNames();
+            while(parametrosIniciales.hasMoreElements()){
+            String nombre=parametrosIniciales.nextElement();
+            String valor=getInitParameter(nombre);
+            //Para que muestre los parametros en la pagina:
+            out.println("<div><Strong>"+nombre+" :</strong>"+valor+"</div><hr>");
+            
+            //Para que los muestre por consola: 
+            System.out.println(nombre+" :"+valor);
+        }
             out.println("</fieldset>");
             out.println("<br><div id='enlace'><a href='"+request.getContextPath()+"'>Volver al menú</a></div>"); 
             out.println("</body>");
@@ -66,44 +74,8 @@ public class Config extends HttpServlet {
     }
             
         
-    
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    public Config(){
-        super();
-       
-    }
     
-    
-    @Override
-    public void init(ServletConfig config){
-      
-        Enumeration<String> parametrosIniciales=config.getInitParameterNames();
-         while(parametrosIniciales.hasMoreElements()){
-         String nombre=parametrosIniciales.nextElement();
-         String valor=config.getInitParameter(nombre);
-         System.out.println(nombre+" :"+valor);
-        }
-         
-    }
-    
-    @Override
-    public void destroy(){
-        
-    }
-    
-    @Override
-    public void service( ServletRequest request, ServletResponse response){
-        
-    }
     
     
     @Override

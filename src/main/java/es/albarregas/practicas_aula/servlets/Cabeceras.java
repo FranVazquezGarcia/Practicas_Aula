@@ -45,6 +45,7 @@ public class Cabeceras extends HttpServlet {
             out.println("<h1>Headers</h1>");
             out.println("<fieldset>");
             
+            //Obtenemos todas las cabeceras y las mostramos directamente.
             Enumeration<String> parametros=request.getHeaderNames();
             while(parametros.hasMoreElements()){
                 String nombre=parametros.nextElement();

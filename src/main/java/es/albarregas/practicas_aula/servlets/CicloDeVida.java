@@ -5,7 +5,7 @@
  */
 
 package es.albarregas.practicas_aula.servlets;
-//service, init, destroy
+
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletRequest;
@@ -20,6 +20,8 @@ import javax.servlet.http.HttpServlet;
 @WebServlet(name = "CicloDeVida", urlPatterns = {"/CicloDeVida"})
 public class CicloDeVida extends HttpServlet {
 
+    
+    //Ciclo de vida, metodos: service, init, destroy
     public CicloDeVida(){
         super();
         System.out.println("Se crea el Servlet");

@@ -42,20 +42,23 @@ public class InfoDeCliente extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Información del cliente</h1>");
             out.println("<fieldset>");
+            //Obtenemos informacion del cliente mediante metodos de request y los mostramos.
             out.println("<div><strong>Host: </strong>"+request.getServerName()+"</div><hr>");
             out.println("<div><strong>Port: </strong>"+request.getServerPort()+"</div><hr>");
             out.println("<div><strong>Identificador URL: </strong>"+request.getRequestURL()+"</div><hr>");
             out.println("<div><strong>Identificador URI: </strong>"+request.getRequestURI()+"</div><hr>");
             out.println("<div><strong>Servlet Path: </strong>"+request.getServletPath()+"</div><hr>");
             out.println("<div><strong>Direccion IP: </strong>"+request.getRemoteAddr()+"</div><hr>");
-            
             out.println("<div><strong>Sesion ID: </strong>"+request.getRequestedSessionId()+"</div><hr>");
+            
+            //Obtenemos los parametros iniciales definidos en web.xml mediante un Enumeration. 
             Enumeration<String> parametrosIniciales=getInitParameterNames();
-         while(parametrosIniciales.hasMoreElements()){
-         String nombre=parametrosIniciales.nextElement();
-         String valor=getInitParameter(nombre);
-         out.print("<div><strong>"+nombre+": </strong>"+valor+"</div>");
-        }
+            while(parametrosIniciales.hasMoreElements()){
+                String nombre=parametrosIniciales.nextElement();
+                String valor=getInitParameter(nombre);
+                out.print("<div><strong>"+nombre+": </strong>"+valor+"</div>");
+            }
+            
             out.println("</fieldset>");
             out.println("<br><div id='enlace'><a href='"+request.getContextPath()+"'>Volver al menú</a></div>"); 
             out.println("</body>");

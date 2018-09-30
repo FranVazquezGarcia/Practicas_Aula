@@ -48,8 +48,8 @@ public class EnviarDatosFormulario extends HttpServlet {
                  
                     out.println("<html><head> <meta charset=\"UTF-8\"><link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"CSS/formulario.css\" /></head><body><fieldset><legend style=\"\">Datos enviados</legend>");
                      out.println("<div id='datos'>");
-                
-                    
+                 
+                    //Obtenemos toda la informacion del formulario mediante el metodo request.getParameterMap(), lo introducimos en un Map y lo recorremos para mostrar la informacion.
                       Map<String, String[]> coleccion =request.getParameterMap();
                         for (Map.Entry<String, String[]> entrada : coleccion.entrySet()){
                             String[] valores = entrada.getValue();
