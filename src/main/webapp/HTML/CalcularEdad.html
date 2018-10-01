@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Calculo de edad</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" media="screen" href="../CSS/edad.css" />
+    </head>
+    <body>
+         <form action="../JSP/CalculoEdad.jsp" method="post" name="form">
+		<fieldset>
+                    <legend style="">Datos</legend>
+				<label for='Usuario' >Introduce tu nombre: </label>
+				<input type="text" id="Usuario" name="Nombre">
+                                <br><br>
+                                <label for='fecha' >Selecciona tu fecha de nacimiento: </label>
+                                <input type="date" name="fecha" required="">
+                                <br><br>
+                                <input type="submit" name="Submit" id="button" value="Enviar datos" >
+                                
+                                <input type="reset" value="Limpiar formulario">
+                </fieldset>
+        </form>    
+    </body>
+</html>

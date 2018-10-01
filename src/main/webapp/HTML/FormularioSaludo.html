@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Formulario para saludar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" media="screen" href="../CSS/edad.css" />
+    </head>
+    <body>
+        <form action="../JSP/Saludo.jsp" method="post" name="form">
+		<fieldset>
+                    <legend style="">Datos básicos</legend>
+				<label for='Usuario' >Introduce tu nombre: </label>
+				<input type="text" id="Usuario" name="Nombre">
+                                <br><br>
+                                <label for='Sexo' >Sexo:</label>
+                                <input type="radio" name="Sexo" value="Hombre" checked>Hombre
+                                <input type="radio" name="Sexo" value="Mujer">Mujer
+                                <br><br>
+                                <input type="submit" name="Submit" id="button" value="Enviar datos">
+                                
+                                <input type="reset" value="Limpiar formulario">
+                </fieldset>
+        </form>         
+    </body>
+</html>
