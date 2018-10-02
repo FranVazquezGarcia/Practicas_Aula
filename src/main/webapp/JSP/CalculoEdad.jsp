@@ -35,13 +35,19 @@
            
            
            if(anio>fechaActual.get(Calendar.YEAR) || (anio==fechaActual.get(Calendar.YEAR) && mes>fechaActual.get(Calendar.MONTH)+1) || (anio==fechaActual.get(Calendar.YEAR) && mes==fechaActual.get(Calendar.MONTH)+1 && dia>fechaActual.get(Calendar.DAY_OF_MONTH))){
+               fechaNacimiento.set(Calendar.YEAR,anio-fechaActual.get(Calendar.YEAR));
+               fechaNacimiento.set(Calendar.MONTH, mes-fechaActual.get(Calendar.MONTH));
+               fechaNacimiento.set(Calendar.DAY_OF_MONTH, dia-fechaActual.get(Calendar.DAY_OF_MONTH));
                %><h2 id="centrar"><%=request.getParameter("Nombre")%> Nacera dentro de <%=fechaNacimiento.get(Calendar.YEAR)%> años, <%=fechaNacimiento.get(Calendar.MONTH)%> meses y <%=fechaNacimiento.get(Calendar.DAY_OF_MONTH)%> días.</h2><%
            }else{
+                if((anio==fechaActual.get(Calendar.YEAR) && mes==fechaActual.get(Calendar.MONTH)+1 && dia==fechaActual.get(Calendar.DAY_OF_MONTH))){
+               %><h2 id="centrar"><%=request.getParameter("Nombre")%> Ha nacido hoy</h2><%
+                }else{
                %><h2 id="centrar"><%=saludo%>ienes <%=fechaNacimiento.get(Calendar.YEAR)%> años, <%=fechaNacimiento.get(Calendar.MONTH)%> meses y <%=fechaNacimiento.get(Calendar.DAY_OF_MONTH)%> días.</h2><%
-
+                }
             }
-               fechaNacimiento.set(Calendar.YEAR, fechaNacimiento.get(Calendar.YEAR)-1);
-            %><%=fechaActual.get(Calendar.MONTH)%></fieldset>
+            
+            %></fieldset>
         <br><div id='centrar'><a href="<%=request.getContextPath()%>">Volver al menú</a></div>
     </body>
 </html>
