@@ -8,20 +8,12 @@ and open the template in the editor.
     Author     : fjvaz
 */
 
-h1{font-size: 3em; text-align: center}
-div{font-size: 40px}
+body{background-image: url("https://www.mactualidad.com/wp-content/uploads/2014/07/smooth-ivy.jpg")}
+h1 {text-align: center; font-size: 60px; text-decoration: underline}
+li{font-size: 30px}
+/*#column1{float: left; margin-left: 300px;  }
+#column2{float: right; margin-right: 300px}
+#column3{float: none; margin-top: 400px; margin-left: 25%; margin-right: 25%}*/
 
-#contenedor{
-    width: 100%;
-}
-#left, #right{float: left; width:40%; margin-left: 10% }
-
-#right2{
-    float: right;
-    width:40%;
-    margin-top: 10%;
-    }
-
-#listaizq, #listader{ font-size: 20px; float: left;  width:40%; margin-left: 10% }
-
-#listader2{ font-size: 20px;}
+#column1,#column2,#column3{float: left; margin-left: 8%; background-color: rgba(182,177,230,0.7);  }
+legend{font-size: 40px; font-weight: bold   }
