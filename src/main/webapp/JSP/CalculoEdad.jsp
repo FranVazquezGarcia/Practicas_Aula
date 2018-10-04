@@ -7,8 +7,6 @@
 
 <%@page import="java.time.Period"%>
 <%@page import="java.time.LocalDate"%>
-<%@page import="java.util.GregorianCalendar"%>
-<%@page import="java.util.Calendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.time.LocalTime"%>
 <!DOCTYPE html PUBLIC "‐//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
@@ -16,7 +14,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" media="screen" href="../CSS/edad.css" />
-        <title>Saludo</title>
+        <title>Calcular Edad</title>
     </head>
     <body>
         <%--Obtenemos el dia, mes y año de nacimiento en format--%>
