@@ -5,6 +5,8 @@
 --%>
 
 
+<%@page import="java.time.Period"%>
+<%@page import="java.time.LocalDate"%>
 <%@page import="java.util.GregorianCalendar"%>
 <%@page import="java.util.Calendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -18,40 +20,74 @@
     </head>
     <body>
         <%--Obtenemos el dia, mes y año de nacimiento en format--%>
+        <fieldset>
         <% 
            
             //Obtenemos el valor de la fecha y a partir del String obtenemos el año, mes y dia de nacimiento.
-           String nacimientoString=request.getParameter("fecha");
+        String nacimientoString=request.getParameter("fecha");
            
-           int anio=Integer.parseInt(nacimientoString.substring(0, 4));
-           int mes=Integer.parseInt(nacimientoString.substring(5, 7));
-           int dia=Integer.parseInt(nacimientoString.substring(8, 10));
-          
-           //Obtenemos la fecha actual y creamos otra variable calendar estableciendole en el dia me y año el valor actual menos el de nacimiento, asi se calcula automaticamente.
-           Calendar fechaActual=Calendar.getInstance();
-           Calendar fechaNacimiento=new GregorianCalendar(fechaActual.get(Calendar.YEAR)-anio, (fechaActual.get(Calendar.MONTH)+1)-mes, fechaActual.get(Calendar.DAY_OF_MONTH)-dia);
-           String saludo;
-           //El calendar no guarda como valor de año 0, asique el año lo calculamos en una variable aparte.
-           int anyo=fechaActual.get(Calendar.YEAR)-anio;
-
-
-           %><fieldset><%
+        int anio=Integer.parseInt(nacimientoString.substring(0, 4));
+        int mes=Integer.parseInt(nacimientoString.substring(5, 7));
+        int dia=Integer.parseInt(nacimientoString.substring(8, 10));
+        
+        //Mediante el metodo between de Period obetenmos la diferenci entre los LocalDate de la fecha actual y la fecha de nacimiento.
+        LocalDate fechaActual= LocalDate.now();
+        LocalDate fechaNacimiento= LocalDate.of(anio, mes, dia);
+        Period diferencia=Period.between(fechaNacimiento, fechaActual);
            
-           //Comprobamos con unas condiciones if si no ha nacido aun, si ha nacido hoy o si ya ha nacido, en este ultimo caso muestra los dias, meses y años que tiene.
-           if(anio>fechaActual.get(Calendar.YEAR) || (anio==fechaActual.get(Calendar.YEAR) && mes>fechaActual.get(Calendar.MONTH)+1) || (anio==fechaActual.get(Calendar.YEAR) && mes==fechaActual.get(Calendar.MONTH)+1 && dia>fechaActual.get(Calendar.DAY_OF_MONTH))){
-               saludo=(request.getParameter("Nombre").equals(""))? "N" : (""+request.getParameter("Nombre")+" n");
-               %><h2 id="centrar"><%=saludo%>o ha nacido todavía.</h2><%
-           }else{
-                if((anio==fechaActual.get(Calendar.YEAR) && mes==fechaActual.get(Calendar.MONTH)+1 && dia==fechaActual.get(Calendar.DAY_OF_MONTH))){
-                saludo=(request.getParameter("Nombre").equals(""))? "H" : (""+request.getParameter("Nombre")+" h");
-               %><h2 id="centrar"><%=saludo%>a nacido hoy</h2><%
-                }else{
-                
-                 saludo=(request.getParameter("Nombre").equals(""))? "T" : ("Hola "+request.getParameter("Nombre")+", t");
-               %><h2 id="centrar"><%=saludo%>ienes <%=anyo%> años, <%=fechaNacimiento.get(Calendar.MONTH)%> meses y <%=fechaNacimiento.get(Calendar.DAY_OF_MONTH)%> días.</h2><%
-                }
-            }
-            
+        
+        //Comprobamos las condiciones que cumplen los datos introducidos para asi mostrar el mensaje de una forma u otra.
+        StringBuilder cadenaFecha = new StringBuilder();
+        if((!diferencia.isNegative() && !fechaActual.equals(fechaNacimiento))){
+            cadenaFecha.append((request.getParameter("Nombre").equals(""))? "" : ("Hola "+request.getParameter("Nombre")+", tienes "));
+  
+           if(diferencia.getYears()>1){
+           cadenaFecha.append(diferencia.getYears()+" años");
+           }
+           else if(diferencia.getYears()==1){
+                 cadenaFecha.append(diferencia.getYears()+" año");
+           }
+           
+           if(diferencia.getYears()!=0 && (diferencia.getMonths()!=0 && diferencia.getDays()!=0)){
+               cadenaFecha.append(", ");
+           }
+           else if(diferencia.getYears()!=0 && (diferencia.getMonths()!=0)){
+               cadenaFecha.append(" y ");
+           }
+           else if(diferencia.getYears()!=0 && (diferencia.getDays()!=0)){
+               cadenaFecha.append(" y ");
+           }
+           
+           
+           if(diferencia.getMonths()>1){
+           cadenaFecha.append(diferencia.getMonths()+" meses");
+           }
+           else if(diferencia.getMonths()==1){
+                 cadenaFecha.append(diferencia.getMonths()+" mes");
+           }
+           
+            if(diferencia.getMonths()!=0 && (diferencia.getDays()!=0)){
+               cadenaFecha.append(" y ");
+           }
+           
+            if(diferencia.getDays()>1){
+           cadenaFecha.append(diferencia.getDays()+" días");
+           }
+           else if(diferencia.getDays()==1){
+                 cadenaFecha.append(diferencia.getDays()+" día");
+           }  
+        }else if(fechaActual.equals(fechaNacimiento)){
+            cadenaFecha.append((request.getParameter("Nombre").equals(""))? "Ha nacido hoy" : (request.getParameter("Nombre")+" ha nacido hoy"));
+        }else{
+               cadenaFecha.append((request.getParameter("Nombre").equals(""))? "No ha nacido todavía" : (request.getParameter("Nombre")+" no ha nacido todavía"));
+        }
+        cadenaFecha.append(".");
+           //Muestra el mensaje
+           %>
+           <h2><%=cadenaFecha%></h2>
+           <%
+           
+           
             %></fieldset>
         <br><div id='centrar'><a href="<%=request.getContextPath()%>">Volver al menú</a></div>
     </body>

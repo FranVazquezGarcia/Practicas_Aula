@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 
-body{font-size: 2em}
+body{font-size: 2em;}
 fieldset{border-width: 10px; border-color: darkblue; background-color: aliceblue }
 #centrar{text-align: center}
 #imagen{border: 10px double red; text-align: center; margin-left: 5em; margin-right: 5em}

@@ -80,7 +80,7 @@ public class DatosRegistroUsuarios extends HttpServlet {
             out.println("<head> <meta charset=\"UTF-8\"><link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"CSS/RegistroUsuarios.css\" /><link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\"></head>");
             out.println("<body>");
             //Mensajes de error en el caso de que el usuario introduza un dato mal
-            String mostrarError[]={"ERROR: No has introducido el nombre.","ERROR: No has introducido el usuario.","ERROR: No has introducido la contaseña.","ERROR: La fecha de nacimiento es incorrecta."};
+            String mostrarError[]={"ERROR: No has introducido el nombre.","ERROR: No has introducido el usuario.","ERROR: No has introducido la contraseña.","ERROR: La fecha de nacimiento es incorrecta."};
     
             int numAnio=Integer.parseInt(request.getParameter("Anio"));
              
@@ -197,16 +197,20 @@ public class DatosRegistroUsuarios extends HttpServlet {
                                 String preferencias[]=request.getParameterValues("Preferencias");
                                 String aficiones[]={"Deporte", "Lectura", "Cine", "Viajes"};
                                 
+                                
                                 for(int i=0;i<aficiones.length;i++){
                                     String seleccionado="";
+                                    if (preferencias!=null){
                                     for(int n=0;n<preferencias.length;n++){
                                         if(aficiones[i].equals(preferencias[n])){
                                             seleccionado="checked=\"\"";
                                         }
                                     }
+                                    }
                                     out.println("<input type=\"checkbox\"  name=\"Preferencias\" value=\""+aficiones[i]+"\" "+seleccionado+">"+aficiones[i]+"<br>\n");
                                     
                                 }
+                                
                                 
                            
                                 out.println("<br><br>\n</div>\n</fieldset><br><div id=\"centrar\">\n");
