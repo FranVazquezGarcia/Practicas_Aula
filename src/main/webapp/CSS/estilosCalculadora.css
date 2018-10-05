@@ -16,7 +16,9 @@ fieldset{ border-color: blue; margin:20px; padding: 30px 90px; }
 legend{text-align: center; font-size: 2em; font-weight: bold }
 input[type="radio"]{display: inline-block;  margin-left: 15%}
 #enlace{text-align: center; font-family: fantasy; font-size: 25px}
-.botones{text-align: center;}
-input[name="Submit"]{margin-left: 10px; border-radius: 20px}
-input[name="menu"]{float:right}
+.botones{text-align: center; }
+input[name="Submit"]{margin-left: 10px; border-radius: 20px; border-color: blue; font-size: 20px; display: inline-blockç}
+/*input[name="menu"]{float:right; font-weight: bold; border-color: black}*/
+a{float:right; font-weight: bold; color: black; text-decoration: none; border: 3px black solid}
 .texto{text-align: center;}
+.textoFecha{text-align: center; font-size: 15px}
