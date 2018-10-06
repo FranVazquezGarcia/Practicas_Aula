@@ -13,11 +13,11 @@
         <title>Menu de Cookies</title>
     </head>
     <body>
-        <form action="MenuCookies.jsp" method="" name="form">
+        <form action="ControlDeCookie.jsp" method="" name="form">
 		<fieldset>
                     <legend>Menú de Cookies</legend>
 				<label for='nombre' >Introduce el nombre de la cookie: </label>
-				<input type="text" id="nombre" name="Nombre">
+                                <input type="text" id="nombre" name="Nombre" required="">
                                 <br><br>
                                 <label for='valor' >Introduce el valor de la cookie: </label>
 				<input type="text" id="valor" name="Valor">
@@ -28,7 +28,8 @@
                                 <input type="submit" name="Submit" id="button" value="Eliminar">
                                 <br><br><br>
                                 <div class="texto">
-                                    <%=(request.getParameter("mensaje")!=null? request.getParameter("mensaje"): "")%>
+                                    
+                                    <%=request.getParameter("mensaje")!=null? request.getParameter("mensaje") : ""%>
                                 </div>
 
                 </fieldset>

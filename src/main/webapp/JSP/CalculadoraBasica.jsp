@@ -73,7 +73,7 @@
                     int dia=fechaActual.get(Calendar.DAY_OF_MONTH);
                     int mes=fechaActual.get(Calendar.MONTH);
                     int anio=fechaActual.get(Calendar.YEAR);
-                    
+                    //simpleDateFormat
                     
                     mensajeFecha.append("Cálculo realizado el "+dias[diaSemana]+" "+dia+" de "+meses[mes]+" de "+anio);
                 }
@@ -93,7 +93,7 @@
         <div class="botones">
         <input type="submit" name="Submit" id="button" value="Enviar">
         <input type="reset" name="Submit" id="button" value="Limpiar">
-<!--        <input type="submit" name="menu" id="button" value="Menú Inicial" onclick="location.href='<%=request.getContextPath()%>'">-->
+        <input type="submit" name="menu" id="button" value="Menú Inicial" onclick="location.href='<%=request.getContextPath()%>'">
         <a href="<%=request.getContextPath()%>">Volver al menú</a>
         </div>
         </fieldset>
