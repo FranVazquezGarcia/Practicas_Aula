@@ -41,9 +41,7 @@
             }
             //Si la cookie existe
             if(posicion!=-1){
-                if(request.getParameter("Submit").equals("Crear")){
-                    mensaje.append("Ya existe la cookie: "+cookies[posicion].getName()+", con valor: "+cookies[posicion].getValue());
-                }else if(request.getParameter("Submit").equals("Visualizar")){
+                if(request.getParameter("Submit").equals("Visualizar")){
                     mensaje.append("La cookie "+cookies[posicion].getName()+", tiene el valor: "+cookies[posicion].getValue());
                 }else if(request.getParameter("Submit").equals("Modificar")){
                     if (cookie.getValue().equals(cookies[posicion].getValue())){
@@ -58,6 +56,8 @@
                     mensaje.append("Se ha eliminado la cookie: "+cookies[posicion].getName());
                     cookie.setMaxAge(0);
                     response.addCookie(cookie);
+                }else{
+                    mensaje.append("Ya existe la cookie: "+cookies[posicion].getName()+", con valor: "+cookies[posicion].getValue());
                 }
                 
                 
@@ -74,20 +74,11 @@
                 response.addCookie(cookie);
                 mensaje.append("Se ha creado la cookie: "+cookie.getName()+", con el valor: "+cookie.getValue()+".");
                 }
-            }else if(request.getParameter("Submit").equals("Visualizar")){
+            }else{
                 mensaje.append("No existe la cookie: "+cookie.getName()+".");
-            }else if(request.getParameter("Submit").equals("Modificar")){
-                mensaje.append("No se puede modificar la cookie: "+cookie.getName()+", porque no existe.");
-            }else if(request.getParameter("Submit").equals("Eliminar")){
-                mensaje.append("No se puede eliminar la cookie: "+cookie.getName()+", porque no existe.");
             }
-                
-          
-                
+            }
             
-                
-            }
-            //mensaje.append(cookie.getValue());
         response.sendRedirect("MenuCookies.jsp?mensaje="+mensaje);
         %>
         
