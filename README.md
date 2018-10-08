@@ -1,4 +1,10 @@
 # Practicas_Aula
+Commit 9/10/2018
+-He reducido el código del jsp ControlDeCookie.jsp, para evitar repeticiones y multiples if innecesarios en el código.
+
+
+
+----------------
 Commit 8/10/2018
 -Se ha arreglado un error de la aplicacion de ContadorCookie.jsp, en el que simepre mostraba la informacion de la cookie aparte del contador,
 ahora solo muestra esa informacion cuando el valor de la cookie es 1, es decir,solo la primera vez que se entra en la página.

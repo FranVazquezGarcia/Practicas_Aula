@@ -38,7 +38,7 @@
                     posicion=i;
                     break;
                 }
-            }
+            } 
             //Si la cookie existe
             if(posicion!=-1){
                 if(request.getParameter("Submit").equals("Visualizar")){
