@@ -19,13 +19,14 @@
             Cookie[] cookies=request.getCookies();
             Cookie cookie=null;
             int posicion=-1;
+            if (cookies!=null){
             for(int i=0;i<cookies.length;i++){
                 if(cookies[i].getName().equals("Cookie")){
                     posicion=i;
                     break;
             }
             }
-            
+            }
             
             if(posicion!=-1){
                int contador=Integer.parseInt(cookies[posicion].getValue())+1;
