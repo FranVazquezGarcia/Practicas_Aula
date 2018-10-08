@@ -1,7 +1,7 @@
 # Practicas_Aula
 Commit 9/10/2018
 -He reducido el código del jsp ControlDeCookie.jsp, para evitar repeticiones y multiples if innecesarios en el código.
-
+ 
 
 
 ----------------
