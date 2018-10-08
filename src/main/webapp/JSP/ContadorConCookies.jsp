@@ -20,12 +20,12 @@
             Cookie cookie=null;
             int posicion=-1;
             if (cookies!=null){
-            for(int i=0;i<cookies.length;i++){
-                if(cookies[i].getName().equals("Cookie")){
-                    posicion=i;
-                    break;
-            }
-            }
+                for(int i=0;i<cookies.length;i++){
+                    if(cookies[i].getName().equals("Cookie")){
+                        posicion=i;
+                        break;
+                    }
+                }
             }
             
             if(posicion!=-1){
@@ -48,13 +48,14 @@
         %>
         <form action="ContadorConCookies.jsp" name="form">
         <h2>Número de veces que has recargado la página: <%=cookie.getValue()%></h2>
+            <%if (cookie.getValue().equals("1")){%>
         <ul>
             <li>Caducidad: <%=cookie.getMaxAge()%></li>
             <li>Nombre: <%=cookie.getName()%></li>
             <li>Seguridad: <%=cookie.getSecure()%></li>
             <li>Version: <%=cookie.getVersion()%></li>
         </ul>
-        
+        <%}%>
                <input type="submit" name="Submit" id="button" value="Recargar">
                <input type="submit" name="Submit" id="button" value="Eliminar">
                <input type="button" name="Submit" id="button" value="Menú" onclick="location.href='<%=request.getContextPath()%>'">
