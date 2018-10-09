@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" media="screen" href="../CSS/estilosCookies.css" />
         <title>Menu de Sesiones</title>
-    </head>
+    </head> 
     <body>
         <form action="ControlDeSessions.jsp" name="form">
 		<fieldset>

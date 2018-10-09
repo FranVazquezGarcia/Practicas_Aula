@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Control de sessions</title>
     </head>
-    <body>
+    <body> 
         <%
             StringBuilder mensaje=new StringBuilder();
             String nombre=request.getParameter("Nombre");
