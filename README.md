@@ -9,7 +9,7 @@ existe se podra crear, pero no se podra ni visualizar, ni modificar, ni eliminar
 como valor un stringbuilder que indica la accion realizada y la informacion de los atributos, a este atributo lo llamamos desde el MenuSessions.jsp
 mediante session.getAttribute("mensaje").
 
-
+ 
 ----------------
 Commit 8/10/2018
 -He arreglado un error de la aplicacion de ContadorCookie.jsp, en el que simepre mostraba la informacion de la cookie aparte del contador,
