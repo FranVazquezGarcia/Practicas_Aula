@@ -1,4 +1,13 @@
 # Practicas_Aula
+Commit 10/10/2018
+-Finalizado el ejercicio de contador con session, el ContadorConSessions.jsp muestra por pantalla el numero de veces que se ha recargado la pagina
+y 2 botones, recargar y menu, y un checkbox eliminar. Al recargar la pagina, o al entrar por primera vez, se compruba si existe la session cotador
+recorriendo un enumeration, si no existe la crea y le poner de valor 1, y si ya existe le suma 1 al valor, despues este valor es el numero que 
+muestra por pantalla que indica el numero de veces que se ha recargado la pagina. Si se selecciona el check de eliminar y pulsamos en recargar,
+se borra el atributo contador, y mostrara un 0 como numero de veces que se ha recargado la pagina.
+
+
+----------------
 Commit 9/10/2018
 -He reducido el código del jsp ControlDeCookie.jsp, para evitar repeticiones y multiples if innecesarios en el código.
 
