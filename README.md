@@ -2,11 +2,17 @@
 Commit 9/10/2018
 -He reducido el código del jsp ControlDeCookie.jsp, para evitar repeticiones y multiples if innecesarios en el código.
 
+-Finalizado el ejercicio del menu de sesiones, el jsp MenuSessions.jsp pide al usuario el nombre y el valor del un atributo, y segun la opcion
+que elija se realizaran deiferentes acciones, primero llama a ControlDeSessions.jsp, el cual se encarga de buscar si ya existe el atributo e la session
+mediante getAtributeNames, en el caso de que existe no se podra crear otra igual, y se podra visualizar, modificat y eliminar, y en el caso de que no
+existe se podra crear, pero no se podra ni visualizar, ni modificar, ni eliminar. Finalmente crea un atributo mensaje, el cual tiene
+como valor un stringbuilder que indica la accion realizada y la informacion de los atributos, a este atributo lo llamamos desde el MenuSessions.jsp
+mediante session.getAttribute("mensaje").
 
 
 ----------------
 Commit 8/10/2018
--Se ha arreglado un error de la aplicacion de ContadorCookie.jsp, en el que simepre mostraba la informacion de la cookie aparte del contador,
+-He arreglado un error de la aplicacion de ContadorCookie.jsp, en el que simepre mostraba la informacion de la cookie aparte del contador,
 ahora solo muestra esa informacion cuando el valor de la cookie es 1, es decir,solo la primera vez que se entra en la página.
 Tambien he arreglado otro error, que hacia que a veces saltase un error al entrar en la pagina,
 esto se debia a que el jsp intentaba recorrer un array que era nulo siempre por primera vez al ejecutar la aplicacion.
@@ -21,14 +27,15 @@ la cookie que hace de contador se guarda en un int, la posicion del array en la 
 y si existe se le suma al valor 1, convirtiendo el valor a int para sumarle 1 y despues añadiendoselo de nuevo a la cookie como string.
 Se muestra por pantalla la informacion de la cookie, y las veces que se ha recargado la pagina, cada vez que se recarge muestra el valor mas 1.
 Si se pulsa la opcion eliminar se establece el valo a 0, para poder mostrarle algo al usuario, y despues se elimina. Si se le vuelve dar a recargar
-se volvera a crear la cookie.
+se volvera a crear la cookie. Ademas, en caso de que se introduzcan espacios es el nombre, se elimian, y si lo introduce en el valor se sustituye
+por %20, para que no salga error, y el usuario seguira viendo que hay un espacio en el valor.
 
 
 
 
 ----------------
 Commit 5/10/2018
--Se ha creado el jsp calculadorBasica.jsp, este pide al usuario dos números mediantes dos inputs, y con un radio se le da una operacion a elegir,
+-Hecho el jsp calculadoraBasica.jsp, este pide al usuario dos números mediantes dos inputs, y con un radio se le da una operacion a elegir,
 el jsp se encarga de comprobar si los datos introducidos son valores correctos, o si no se han introducido nada, en el caso de que sean correctos,
 se obtienen estos valores con getParameter y se introducen en atributos Double, transformando los strings con parseDouble.
 Despues segun la opcion elegida muestra el resultado de la operacion, y debajo se escribe el dia, mes y año de la fecha cuando se realiza la operacion,
@@ -67,11 +74,11 @@ se han modificado los html para que al pulsar el boton enviar llamen ha dicho me
 
 ----------------
 Commit 3/10/2018
--Se ha creado la aplicacion de Saludo, el fichero FormularioSaludo.html pide al usuario el nombre y el sexo, y llama al jsp Saludo.jsp.
+-Creada la aplicacion de Saludo, el fichero FormularioSaludo.html pide al usuario el nombre y el sexo, y llama al jsp Saludo.jsp.
 El Saludo.jsp guarda en varios String, el genero y la hora del saludo, y muestra el saludo(segun sea dia, tarde o noche),
 indicando el genero y el nombre de usuario.
 
--Se ha creado el CalcularEdad.html que pide al usuario su nombre y su fecha de nacimiento, una vez le da a enviar se llama al jsp CalculoEdad.jsp,
+-Añadida la aplicacion de calcular la edad, CalcularEdad.html  pide al usuario su nombre y su fecha de nacimiento, una vez le da a enviar se llama al jsp CalculoEdad.jsp,
 este se encarga de obtener el dia, año y mes de nacimiento. Usando Perid, y su metodo between comprobamos la diferencia entre 2 localdate, el cual
 uno es la fecha de nacimiento y el otro la actual, esto nos devolvera la diferencia entre ambos. Se crea un stringbuilder, en el cual se van
 guardando diferentes valores en funcion del numero de años, meses y dias, por ejemplo, en el caso de que los años sean 0, no se añaden al stringbuilder,
@@ -85,10 +92,10 @@ por lo que se hacen multiples comprobaciones con if, para saber cuando poner las
 
 ----------------
 Commit 2/10/2018
--Se ha creado el servlet cabeceras.java, que mediante getHeaderNames guarda los datos en un enumeration y posteriormente lo muestra
+-Creada el servlet cabeceras.java, que mediante getHeaderNames guarda los datos en un enumeration y posteriormente lo muestra
 por pantalla al usuario, utiliza los estilo de Sencillo.css
 
--Se ha creado el servlet cicloDeVida.java, que utiliza los metodos init, service y destroy para mostrar un mensaje por pantalla, que indica que
+-Hecho el servlet cicloDeVida.java, que utiliza los metodos init, service y destroy para mostrar un mensaje por pantalla, que indica que
 metodos de esos 3 ha ejecutado la aplicacion, el mensaje de destroy solo lo muestra si se para el servidor, si no, no lo mostrara nunca.
 
 -Se ha modificado el servlet config.java para que muestre tanto el nombre como el valor por pantalla, utilizando los estilos de Sencillo.css.

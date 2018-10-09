@@ -20,6 +20,7 @@
             String valor=request.getParameter("Valor");
             Cookie cookie;
             //Comprobamos si el nombre de la cookie tiene espacios, si los tiene los eliminamos.
+            //Si la posicion de los espacios es igual a -1, significa que no tiene.
             if (nombre.indexOf(" ")==-1 && valor.indexOf(" ")==-1){
             cookie= new Cookie(nombre, valor);
             }else{
