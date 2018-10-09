@@ -60,7 +60,7 @@
                 }
             }
             session.setAttribute("mensaje", mensaje);
-            response.sendRedirect("MenuSessions.jsp?mensaje="+mensaje);  
+            response.sendRedirect("MenuSessions.jsp");  
         %>
         
         
