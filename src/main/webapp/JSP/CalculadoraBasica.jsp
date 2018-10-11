@@ -93,7 +93,6 @@
         <div class="botones">
         <input type="submit" name="Submit" id="button" value="Enviar">
         <input type="reset" name="Submit" id="button" value="Limpiar">
-        <input type="submit" name="menu" id="button" value="Menú Inicial" onclick="location.href='<%=request.getContextPath()%>'">
         <a href="<%=request.getContextPath()%>">Volver al menú</a>
         </div>
         </fieldset>
