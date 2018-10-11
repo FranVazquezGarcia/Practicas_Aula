@@ -1,4 +1,8 @@
 # Practicas_Aula
+Commit 11/10/20178
+-Arreglado un error de CalculadoraBasica.jsp, en el que mostraba 2 botones de enlace al menu, en lugar de uno solo.
+
+-----------------
 Commit 10/10/2018
 -Finalizado el ejercicio de contador con session, el ContadorConSessions.jsp muestra por pantalla el numero de veces que se ha recargado la pagina
 y 2 botones, recargar y menu, y un checkbox eliminar. Al recargar la pagina, o al entrar por primera vez, se compruba si existe la session cotador
