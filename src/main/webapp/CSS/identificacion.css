@@ -1,0 +1,18 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13-oct-2018, 16:20:42
+    Author     : fjvaz
+*/
+
+label{ font-size: 20px;}
+fieldset{ border-color: blue; margin:20px 25% 0px 25%; padding: 30px 90px}
+label+input{float: right;}
+legend{text-align: center; font-size: 2em; font-weight: bold }
+input[type="submit"]{margin-left: 10%}
+.texto{color: red; font-weight: bold}
+p{text-align: center; font-size: 25px;}
+input[id="button"]{border-radius: 30%; margin-left: 25%; border: black solid; font-size: 20px}
