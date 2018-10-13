@@ -45,7 +45,8 @@
             }
             %>
             <form action="ContadorConSessions.jsp" name="form">
-        <h2>Número de veces que has recargado la página: <%=session.getAttribute("contador")!=null? session.getAttribute("contador"): 0%></h2>
+                <%Http sesion%>
+        <h2><%=sesion.getAttribute("mensaje")!=null? sesion.getAttribute("contador"): ""%></h2>
         <input type="submit" name="Submit" id="button" value="Recargar">
         <input type="checkbox" name="check" id="button" value="Eliminar">Eliminar
         <input type="button" name="Submit" id="button" value="Menú" onclick="location.href='<%=request.getContextPath()%>'">

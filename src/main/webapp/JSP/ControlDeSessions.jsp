@@ -62,10 +62,6 @@
             session.setAttribute("mensaje", mensaje);
             response.sendRedirect("MenuSessions.jsp");  
         %>
-        
-        
-        
-        
         <h1></h1>
     </body>
 </html>

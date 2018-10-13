@@ -1,4 +1,18 @@
 # Practicas_Aula
+Commit 13/10/2018
+-La funcion de login de usuario se ha finalizado.
+Esta funcion esta formada por 4 jsp, que esta en la carpeta Identificacion dentro de JSP.
+Login.jsp muestra 2 input, 1 para el nombre de usuario y otro para la contraseña, un checkbox para recordar el nombre de usuario las proximas veces que se acceda a la pagina,
+y los botones menu, para volver al index, y enviar, para mandar la informacion. Si no se introduce como usuario "Fran", y como contraseña "12345", mostrara
+un mensaje de error mediante el controlLogin.jsp. El controlLogin.jsp se encarga de comptrobar si existe el usuario o no, si no existe redirige al login con el mensaje de error,
+y si si existe lo redirige al menu pasandole como parametro el nombre del usuario.
+El menu.jsp muestra la ultima vez que accedio el usuario a la pagina, si no a accedido nunca, le informara de que es la primera vez. Para saber cuando a accedido el usuario,
+al cerrar sesion en el menu, se redirige al jsp LogOut.jsp, este guarda en una cookie la fecha y hora del momento y la guada en una cookie, entonces,
+la proxima vez que se acceda al menu, se recogera la informacion de esa cookie y se mostrara su valor, que es un string de la fecha.
+Tambien en controlLogin se guarda en una cookie el nombre de usuario en el caso de que se pulse el checkbox de recordar usuario, de esta forma la proxima vez que se ntre en el login,
+ya estara escrito el nombre de usuario, que sera el valor de la cookie.
+
+------------------
 Commit 11/10/20178
 -Arreglado un error de CalculadoraBasica.jsp, en el que mostraba 2 botones de enlace al menu, en lugar de uno solo.
 

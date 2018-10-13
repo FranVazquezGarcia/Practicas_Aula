@@ -18,6 +18,7 @@
         <%
             Cookie[] cookies=request.getCookies();
             Cookie cookie=null;
+            
             int posicion=-1;
             if (cookies!=null){
                 for(int i=0;i<cookies.length;i++){
