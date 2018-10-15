@@ -18,12 +18,15 @@
                     <legend>Inicio de sesión</legend>
                     <%  Cookie[] cookies=request.getCookies();
                         String nombreUsuario= new String();
+                        // TE FALTA PREGUNTAR SI EXISTE cookies Y ESTO PRODUCE UN ERROR DE EJECUCIÓN
+                        if(cookies != null) {
                         for(int i=0;i<cookies.length;i++){
                             if(cookies[i].getName().equals("NombreUsuario")){
                                 nombreUsuario=cookies[i].getValue();
                                 break;
                             }
                         } 
+                        }
                         %>
 				<label for='nombre' >Introduce tu nombre de usuario: </label>
                                 <input type="text" id="nombre" name="nombre" required="" value="<%=nombreUsuario==null? "": nombreUsuario%>">

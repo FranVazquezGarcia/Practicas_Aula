@@ -23,14 +23,16 @@
             Enumeration atributos = miSesion.getAttributeNames();
             boolean correcto=false;
             //Compruebo si el atributo introducido por el usuario existe o no, si existe boolean existe sera igual a true.
-            while (atributos.hasMoreElements()) {
+            // EN ESTE CASO NO TIENES PORQUE BUSCAR EL ATRIBUTO SOLO TIENES QUE PREGUNTAR SI LO QUE TE VIENE ES IGUAL TU_USER Y TU_PASSWORD 
+            while (atributos.hasMoreElements()) { // TE FALTARIA LA CONDICIÓN && !correcto
                 String atributo=(String)atributos.nextElement();
                 if (atributo.equals(nombre)){
                     if (contra.equals(miSesion.getAttribute(atributo)))
                     correcto=true;
                 }
             }
-            
+            // NO ESTÁ BIEN PLANTEADO. SI ESTÁ ACTIVADO recordar SE HACE EL PROCESO DE LA COOKIE Y SINO NADA
+            // UNA VEZ QUE EL USUARIO SE RECUERDA LO HARÁ SIEMPRE HASTA QUE DESAPAREZCA LA COOKIE
             if(correcto){
                 Cookie cookieRecordar=new Cookie("NombreUsuario", nombre);
                 if(recordar){

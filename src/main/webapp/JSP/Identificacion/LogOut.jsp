@@ -19,6 +19,7 @@
     </head>
     <body>
         <%
+            // NO INVALIDAS LA SESIÓN Y ESO ES LO QUE SE HACE CUANDO PULSAMOS EN LOGOUT
             int anio= LocalDate.now().getYear();
             Month mes = LocalDate.now().getMonth();
             DayOfWeek dia= LocalDate.now().getDayOfWeek();
